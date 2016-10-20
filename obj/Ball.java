@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.jure.colorbump.ui.Cotrols;
 import com.jure.colorbump.util.Vec;
 
 public class Ball {
@@ -13,6 +12,7 @@ public class Ball {
     public float r = 50;
     public boolean isControlled = false;
     public boolean tagged = false;
+
     public Ball(Vec pos) {
         this.pos = pos;
     }
@@ -54,7 +54,7 @@ public class Ball {
 
     }
 
-    public void tagBall(){
+    public void tagBall() {
         color = "#3D5A80";
         tagged = true;
     }

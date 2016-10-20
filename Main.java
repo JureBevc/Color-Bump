@@ -26,7 +26,7 @@ public class Main extends View {
     Image image;
     Input input;
 
-    public boolean pause = false;
+    public static int threads = 0;
 
     public Main(Context context) {
         super(context);
@@ -49,14 +49,10 @@ public class Main extends View {
         image = new Image(context);
         game = new Game(context);
 
-        Log.d("INIT", "CALLING INIT");
-        try {
-            mainThread.join();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (threads == 0) {
+            threads++;
+            mainThread.start();
         }
-        mainThread.start();
     }
 
     int frames = 0;
@@ -78,8 +74,6 @@ public class Main extends View {
                 try {
                     Thread.sleep(2);
                     Thread.yield();
-                    if (pause)
-                        mainThread.join();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -92,6 +86,7 @@ public class Main extends View {
                 while (delta >= 1) {
                     updates++;
                     delta--;
+
                     update();
                 }
 
@@ -104,7 +99,7 @@ public class Main extends View {
                     //frames++;
                     */
                 if (System.currentTimeMillis() - timer > 1000) {
-                    Log.d("Running ", "fps: " + frames + "| ups:" + updates + "  -- " + mainThread.getId());
+                    //Log.d("Running ", "fps: " + frames + "| ups:" + updates + "  -- " + mainThread.getId());
                     timer += 1000;
                     updates = 0;
                     frames = 0;

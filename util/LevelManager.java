@@ -44,6 +44,7 @@ public class LevelManager {
         if (waitTick >= waitTime) {
             if (currentLevel + 1 < levelInts.length)
                 currentLevel++;
+            Log.d("BALL","CHECK LEVEL CALL");
 
             loadLevel(currentLevel);
             waitTick = 0;
@@ -72,6 +73,7 @@ public class LevelManager {
                     break;
             }
         }
+
         ListManager.balls.get(0).isControlled = true;
         loading = false;
     }

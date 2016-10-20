@@ -33,8 +33,10 @@ public class MainActivity extends Activity {
                     | View.SYSTEM_UI_FLAG_FULLSCREEN;
 
         decorView.setSystemUiVisibility(uiOptions);
+
         main = new Main(this);
         setContentView(main);
+
 
     }
 
@@ -54,14 +56,12 @@ public class MainActivity extends Activity {
 
 
         decorView.setSystemUiVisibility(uiOptions);
-        Log.d("CALLED", "ON RESUME");
-        main.game.levelManager.loadLevel(LevelManager.currentLevel);
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        main.pause = true;
+
     }
 }

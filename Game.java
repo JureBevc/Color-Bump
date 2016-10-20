@@ -22,13 +22,14 @@ public class Game {
     }
 
     public void update() {
+
         if (!levelManager.loading)
             ListManager.update();
+
         uiManager.update();
 
 
         levelManager.checkLevel();
-
     }
 
 

@@ -3,7 +3,6 @@ package com.jure.colorbump.ui;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.jure.colorbump.util.Vec;
